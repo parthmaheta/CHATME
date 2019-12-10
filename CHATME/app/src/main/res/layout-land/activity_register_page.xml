@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    tools:context=".RegisterPage"
+    android:orientation="vertical"
+
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:id="@+id/signuptext"
+        android:text="Sign Up"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"/>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.8"
+        android:id="@+id/nameet"
+        android:hint="Enter Your Name"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/edittext_form"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"/>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.8"
+        android:id="@+id/emailet"
+        android:hint="Enter Email ID"
+        android:textAlignment="center"
+        android:inputType="textEmailAddress"
+        android:textSize="20sp"
+        android:background="@drawable/edittext_form"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"/>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.8"
+        android:id="@+id/passwordet"
+        android:hint="Enter Password"
+        android:textAlignment="center"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:background="@drawable/edittext_form"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:text="Register"
+        android:id="@+id/register_page_btn"
+        android:textColor="#ffff"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button_form"/>
+
+     <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:text="Back"
+         android:layout_marginTop="15dp"
+        android:id="@+id/register_page_backbtn"
+        android:textColor="@android:color/holo_blue_dark"
+        android:background="@drawable/button_border"/>
+
+</LinearLayout>

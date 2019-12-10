@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterPage"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:padding="25dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:id="@+id/view1"/>
+    <TextView
+        android:id="@+id/logotv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:gravity="center"
+        android:text="ChatMe"
+        android:textSize="50sp"
+        android:fontFamily="serif"
+        android:textColor="@android:color/holo_blue_light"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/signuptext"
+        android:text="Sign Up"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/nameet"
+        android:hint="Enter Your Name"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/edittext_form"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:id="@+id/view2"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/emailet"
+        android:hint="Enter Email ID"
+        android:textAlignment="center"
+        android:inputType="textEmailAddress"
+        android:textSize="20sp"
+        android:background="@drawable/edittext_form"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:id="@+id/view3"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/passwordet"
+        android:hint="Enter Password"
+        android:textAlignment="center"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:background="@drawable/edittext_form"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:id="@+id/view4"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        android:text="Register"
+        android:id="@+id/register_page_btn"
+        android:textColor="#ffff"
+        android:background="@drawable/button_form"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:id="@+id/view5"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:text="Back"
+        android:id="@+id/register_page_backbtn"
+        android:textColor="@android:color/holo_blue_dark"
+        android:background="@drawable/button_border"/>
+
+</LinearLayout>

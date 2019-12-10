@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <ImageView
+        android:src="@mipmap/profile_img"
+        android:id="@+id/my_profile_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change"
+
+        android:layout_toRightOf="@id/my_profile_img"
+        android:id="@+id/change_profile_img_btn"/>
+
+    <LinearLayout
+        android:id="@+id/profile_linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+
+        android:layout_below="@id/change_profile_img_btn"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:text="Name:"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="80"
+            android:id="@+id/profile_name"
+            android:singleLine="true"
+            android:text="myName"
+            android:textSize="30sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/profile_linear2"
+        android:layout_below="@id/profile_linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:text="Status:"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="80"
+
+            android:text="mystatus text"
+            android:textSize="30sp" />
+
+
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:textSize="30sp"
+        android:layout_alignParentRight="true"
+
+
+        android:id="@+id/Save_profile__btn"/>
+</RelativeLayout>

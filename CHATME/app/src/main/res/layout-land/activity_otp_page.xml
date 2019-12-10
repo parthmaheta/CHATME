@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OtpPage"
+    android:orientation="vertical"
+    android:padding="25dp">
+
+
+    <TextView
+        android:id="@+id/logotv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:gravity="center"
+        android:text="ChatMe"
+        android:textSize="50sp"
+        android:fontFamily="serif"
+        android:textColor="@android:color/holo_blue_light"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/otptext"
+        android:text="Enter OTP"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/otptv"
+        android:hint="Enter 6 Digit Code"
+        android:textAlignment="center"
+        android:inputType="number"
+        android:ems="6"
+        android:textSize="20sp"
+        android:background="@drawable/edittext_form"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"/>
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_marginTop="10dp"
+        android:text="Verify"
+        android:id="@+id/verify_otp_btn"
+        android:textColor="#ffff"
+        android:background="@drawable/button_form"/>
+
+</LinearLayout>
