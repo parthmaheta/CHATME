@@ -12,34 +12,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatHolder> {
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactHolder> {
 
     private String[] Name;
-    private String[] last_chats;
-    private String[] chat_Time;
-    public ChatListAdapter(String[] name,String[] lastchat,String[] chatTime) {
+
+    public ContactAdapter(String[] name) {
         Name = name;
-        last_chats = lastchat;
-        chat_Time=chatTime;
     }
 
     @NonNull
     @Override
-    public ChatHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ContactHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater LV=LayoutInflater.from(parent.getContext());
-        View view=LV.inflate(R.layout.chat_list,parent,false);
-
-
-        return  new ChatHolder(view);
+        View view=LV.inflate(R.layout.contact_list,parent,false);
+        return  new ContactHolder(view);
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatHolder holder, int position) {
-        holder.ChatName.setText(Name[position]);
-        holder.ChatTxt.setText(last_chats[position]);
-        holder.ChatTime.setText(chat_Time[position]);
-
+    public void onBindViewHolder(@NonNull ContactHolder holder, int position) {
+        holder.ContactTxt.setText(Name[position]);
     }
 
     @Override
@@ -47,20 +39,15 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatHo
         return Name.length;
     }
 
-    public class ChatHolder extends RecyclerView.ViewHolder{
+    public class ContactHolder extends RecyclerView.ViewHolder{
 
-        ImageView ChatImg;
-        TextView  ChatName;
-        TextView  ChatTxt;
-        TextView  ChatTime;
+        ImageView ContactImg;
+        TextView  ContactTxt;
 
-        public ChatHolder(@NonNull View itemView) {
+        public ContactHolder(@NonNull View itemView) {
             super(itemView);
-            ChatImg = itemView.findViewById(R.id.chat_friend_img);
-            ChatName = itemView.findViewById(R.id.chat_friend_name);
-            ChatTxt = itemView.findViewById(R.id.chat_friend_text);
-            ChatTime = itemView.findViewById(R.id.chat_friend_time);
-
+            ContactImg = itemView.findViewById(R.id.contact_list_img);
+            ContactTxt = itemView.findViewById(R.id.contact_list_name);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -71,7 +58,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatHo
                 }
             });
 
-            ChatImg.setOnClickListener(new View.OnClickListener() {
+            ContactImg.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent in=new Intent(v.getContext(),Profile_Detail.class);
@@ -79,7 +66,6 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatHo
                     v.getContext().startActivity(in);
                 }
             });
-
         }
     }
 }

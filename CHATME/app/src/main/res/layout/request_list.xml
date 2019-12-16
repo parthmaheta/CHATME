@@ -1,40 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
 
- <ImageView
-     android:layout_width="wrap_content"
+ <de.hdodenhof.circleimageview.CircleImageView
+     android:layout_width="0dp"
+     android:layout_height="85dp"
+     android:src="@drawable/ic_launcher_background"
+     android:id="@+id/request_img"
+     android:layout_weight="25"
+     app:civ_border_color="@color/imageborder"
+     app:civ_border_width="1dp"/>
+
+ <LinearLayout
+     android:layout_width="0dp"
      android:layout_height="wrap_content"
-     android:src="@mipmap/profile_img_round"
-     android:id="@+id/request_img"/>
+     android:layout_weight="75"
+     android:orientation="vertical"
+     android:weightSum="100">
 
     <TextView
         android:id="@+id/request_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/request_img"
+        android:layout_height="0dp"
+        android:layout_weight="50"
         android:text="name"
-        android:textSize="40sp"
-        android:textStyle="bold" />
+        android:textSize="22sp"
+        android:textStyle="bold"/>
 
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="0dp"
+         android:layout_weight="50">
+        <Button
+            android:id="@+id/request_accept_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/request_name"
+            android:text="Accept"
+            android:textColor="@color/colorGreen"/>
 
-    <Button
-        android:id="@+id/request_accept_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/request_name"
-        android:layout_toRightOf="@id/request_img"
-        android:text="Accept" />
-
-    <Button
-        android:id="@+id/request_reject_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/request_name"
-        android:layout_toRightOf="@id/request_accept_btn"
-        android:text="Reject" />
-</RelativeLayout>
+        <Button
+            android:id="@+id/request_reject_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorRed"
+            android:layout_below="@id/request_name"
+            android:text="Reject" />
+     </LinearLayout>
+ </LinearLayout>
+</LinearLayout>

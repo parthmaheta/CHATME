@@ -25,8 +25,20 @@
         android:layout_alignParentBottom="false"
         android:addStatesFromChildren="false">
 
-
     </FrameLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/floatingaddbtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="70dp"
+        android:layout_marginRight="18dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:src="@drawable/ic_chat_black_24dp"
+        android:tint="@color/colorWhite"
+        app:fabSize="normal"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnav"
@@ -35,8 +47,6 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorWhite"
         app:menu="@menu/bottom_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
-
-
 
 
 </RelativeLayout>

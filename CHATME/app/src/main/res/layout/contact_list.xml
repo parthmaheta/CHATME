@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/friend_img"
+        android:id="@+id/contact_list_img"
         android:layout_width="100dp"
         android:layout_height="75dp"
         android:padding="5dp"
@@ -15,21 +15,13 @@
         app:civ_border_color="@color/imageborder"/>
 
     <TextView
-        android:id="@+id/friend_name"
+        android:id="@+id/contact_list_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/friend_img"
+        android:paddingTop="10dp"
+        android:layout_toRightOf="@id/contact_list_img"
         android:textStyle="bold"
-        android:textSize="22sp"
+        android:textSize="30sp"
         android:text="TextView"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="38dp"
-        android:id="@+id/addfriendbtn"
-        android:text="Add Friend"
-        android:background="@drawable/add_friend_button"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@id/friend_name"
-        android:layout_toRightOf="@id/friend_img"
-        android:textSize="12sp"/>
+
 </RelativeLayout>

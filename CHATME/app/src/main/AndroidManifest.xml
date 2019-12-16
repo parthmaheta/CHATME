@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chatme">
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,9 +11,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-         android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme">
+        <activity android:name=".Find_contact">
+
+
+        </activity>
         <activity android:name=".ChangePassword" />
         <activity android:name=".LoginPage">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,12 +26,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterPage" />
-        <activity android:name=".Main" android:configChanges="orientation|screenSize" />
-        <activity android:name=".OtpPage"></activity>
+        <activity
+            android:name=".Main"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".OtpPage" />
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".ChatScreen"></activity>
-        <activity android:name=".Profile_Detail"></activity>
-        <activity android:name=".View_Img"></activity>
+        <activity android:name=".ChatScreen" />
+        <activity android:name=".Profile_Detail" />
+        <activity android:name=".View_Img" />
     </application>
 
 </manifest>

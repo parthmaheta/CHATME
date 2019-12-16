@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ChatScreen"
     android:layout_width="match_parent"
@@ -10,19 +11,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/chat_title_toolbar"
-        android:background="@color/colorPrimaryDark"
-        >
-        <ImageView
+        android:background="@color/colorPrimaryDark">
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/chat_profile_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/profile_img_round"></ImageView>
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_launcher_background"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/imageborder"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:id="@+id/chat_profile_name"
                android:text="name"
-               android:textSize="30sp"></TextView>
+               android:layout_marginLeft="10dp"
+               android:textSize="25sp"></TextView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,42 +33,47 @@
             android:text="15 min ago"
             android:maxLines="1"
             android:textColor="@color/colorWhite"
-            android:layout_marginLeft="5dp"
-            android:textSize="20sp"></TextView>
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"></TextView>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chat_screen_recycle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/chat_title_toolbar"/>
+        android:layout_below="@id/chat_title_toolbar"
+        android:layout_marginTop="0dp" />
 
     <LinearLayout
     android:weightSum="100"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    >
+    android:orientation="horizontal"
+    android:padding="10dp">
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/send_chat_text"
         android:hint="type message"
-        android:layout_weight="90"></EditText>
-         <Button
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_weight="5"
-             android:onClick="get_file"
-             android:background="@mipmap/send_media_icon"
-             android:id="@+id/send_chat_media"/>
+        android:textAlignment="center"
+        android:background="@drawable/message_textbox"
+        android:layout_weight="75"></EditText>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="12"
+        android:onClick="get_file"
+        android:background="@mipmap/send_media_icon"
+        android:id="@+id/send_chat_media"/>
     <Button
         android:id="@+id/send_chat_btn"
         android:layout_toRightOf="@id/send_chat_media"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
         android:background="@mipmap/send_icon"
-        android:layout_weight="5"
+        android:layout_weight="13"
+        android:layout_gravity="right"
         ></Button>
 </LinearLayout>
 </RelativeLayout>

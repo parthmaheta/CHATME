@@ -7,7 +7,8 @@
     tools:context=".RegisterPage"
     android:orientation="vertical"
     android:weightSum="10"
-    android:padding="25dp">
+    android:padding="25dp"
+    android:background="@drawable/view_background">
 
     <View
         android:layout_width="match_parent"
@@ -41,6 +42,7 @@
         android:layout_weight="1"
         android:id="@+id/nameet"
         android:hint="Enter Your Name"
+        android:inputType="textPersonName"
         android:textAlignment="center"
         android:textSize="20sp"
         android:background="@drawable/edittext_form"

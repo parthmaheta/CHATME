@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="2dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/chat_friend_img"
         android:layout_width="100dp"
         android:layout_height="70dp"
-        android:src="@mipmap/profile_img_round"
-        />
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/imageborder"/>
 
     <TextView
         android:id="@+id/chat_friend_name"
@@ -18,8 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/chat_friend_img"
         android:textStyle="bold"
-        android:textSize="30sp"
-        android:text="TextView" />
+        android:textSize="25sp"
+        android:text="TextView"
+        android:layout_marginTop="2dp"/>
 
     <TextView
         android:id="@+id/chat_friend_text"
@@ -29,7 +32,7 @@
         android:layout_alignBottom="@id/chat_friend_img"
         android:text="Hii..?"
         android:textSize="20sp"
-        />
+        android:layout_marginBottom="5dp"/>
     <TextView
         android:id="@+id/chat_friend_time"
         android:layout_width="wrap_content"
@@ -37,7 +40,7 @@
         android:layout_alignParentRight="true"
         android:textColor="@color/colorPrimary"
         android:layout_marginTop="15dp"
-        android:textSize="25sp"
+        android:textSize="18sp"
         android:text="10:12" />
 
 </RelativeLayout>

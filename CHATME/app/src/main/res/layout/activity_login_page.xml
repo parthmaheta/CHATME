@@ -6,7 +6,8 @@
     tools:context=".LoginPage"
     android:orientation="vertical"
     android:padding="25dp"
-    android:weightSum="10">
+    android:weightSum="10"
+    android:background="@drawable/view_background">
 
     <View
         android:layout_width="match_parent"
@@ -110,7 +111,6 @@
             android:layout_weight="40"
             android:id="@+id/forgot_btn"
             android:text="Forgot Password"
-
             android:textColor="@android:color/holo_blue_dark"/>
 
         <View
@@ -125,10 +125,7 @@
             android:layout_weight="40"
             android:id="@+id/register_btn"
             android:text="Create Account"
-
             android:textColor="@android:color/holo_blue_dark"/>
 
     </LinearLayout>
-
-
 </LinearLayout>
