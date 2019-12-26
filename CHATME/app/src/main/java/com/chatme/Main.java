@@ -28,6 +28,23 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar=findViewById(R.id.top_toolbar);
         setSupportActionBar(toolbar);
+
+
+
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Database_Handler db = new Database_Handler(getApplicationContext());
+                switch (item.getItemId()){
+                    case R.id.top_nav_setting:
+                        Toast.makeText(getApplicationContext(),db.myinfo(),Toast.LENGTH_LONG).show();
+                        break;
+                }
+                return true;
+            }
+        });
+
+
         addbtn = (FloatingActionButton) findViewById(R.id.floatingaddbtn);
 
         addbtn.setOnClickListener(new View.OnClickListener() {
@@ -75,14 +92,11 @@ public class Main extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.top_nav,menu);
-
-
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         return true;
     }
 }

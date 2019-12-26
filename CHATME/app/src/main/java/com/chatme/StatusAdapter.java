@@ -10,14 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusHolder> {
 
-    private String[] Name;
+    private ArrayList<String> Name;
+    private ArrayList<String> Path;
 
-    public StatusAdapter(String[] name) {
-        Name = name;
+    public StatusAdapter(ArrayList name,ArrayList path) {
+        Name=name;
+        Path=path;
     }
 
     @NonNull
@@ -31,12 +36,13 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusHold
 
     @Override
     public void onBindViewHolder(@NonNull StatusHolder holder, int position) {
-        holder.StatusTxt.setText(Name[position]);
+        holder.StatusTxt.setText(Name.get(position));
+        Picasso.get().load("http://192.168.43.191/chatme/status_img/"+Path.get(position)).into(holder.StatusImg);
     }
 
     @Override
     public int getItemCount() {
-        return Name.length;
+        return Name.size();
     }
 
     public class StatusHolder extends RecyclerView.ViewHolder{
@@ -53,7 +59,8 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusHold
                 @Override
                 public void onClick(View v) {
                     Intent in=new Intent(v.getContext(),View_Img.class);
-                    in.putExtra("name",Name[getAdapterPosition()]);
+                    in.putExtra("name",Name.get(getAdapterPosition()));
+                    in.putExtra("path",Path.get(getAdapterPosition()));
                     v.getContext().startActivity(in);
                 }
             });

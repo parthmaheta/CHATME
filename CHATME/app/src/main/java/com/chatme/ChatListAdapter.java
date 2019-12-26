@@ -16,11 +16,10 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatHo
 
     private String[] Name;
     private String[] last_chats;
-    private String[] chat_Time;
-    public ChatListAdapter(String[] name,String[] lastchat,String[] chatTime) {
+
+    public ChatListAdapter(String[] name,String[] lastchat) {
         Name = name;
         last_chats = lastchat;
-        chat_Time=chatTime;
     }
 
     @NonNull
@@ -28,7 +27,6 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatHo
     public ChatHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater LV=LayoutInflater.from(parent.getContext());
         View view=LV.inflate(R.layout.chat_list,parent,false);
-
 
         return  new ChatHolder(view);
 
@@ -38,8 +36,6 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatHo
     public void onBindViewHolder(@NonNull ChatHolder holder, int position) {
         holder.ChatName.setText(Name[position]);
         holder.ChatTxt.setText(last_chats[position]);
-        holder.ChatTime.setText(chat_Time[position]);
-
     }
 
     @Override
@@ -52,14 +48,14 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatHo
         ImageView ChatImg;
         TextView  ChatName;
         TextView  ChatTxt;
-        TextView  ChatTime;
+
 
         public ChatHolder(@NonNull View itemView) {
             super(itemView);
             ChatImg = itemView.findViewById(R.id.chat_friend_img);
             ChatName = itemView.findViewById(R.id.chat_friend_name);
             ChatTxt = itemView.findViewById(R.id.chat_friend_text);
-            ChatTime = itemView.findViewById(R.id.chat_friend_time);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

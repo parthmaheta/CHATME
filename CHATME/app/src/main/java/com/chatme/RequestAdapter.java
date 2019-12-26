@@ -4,20 +4,35 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestHolder> {
 
-    private String[] Name;
+    private ArrayList<String> Id;
+    private ArrayList<String> Name;
+    private ArrayList<String> Picture;
+    private ArrayList<String> Status;
+    private ArrayList<String> Last_Seen;
+    private Fragment_Request  fragment;
 
-    public RequestAdapter(String[] name) {
+    public RequestAdapter(Fragment_Request  frag,ArrayList<String> id, ArrayList<String> name, ArrayList<String> picture, ArrayList<String> status, ArrayList<String> last_Seen) {
+        Id = id;
         Name = name;
+        Picture = picture;
+        Status = status;
+        Last_Seen = last_Seen;
+        fragment=frag;
     }
 
     @NonNull
@@ -31,32 +46,70 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestH
 
     @Override
     public void onBindViewHolder(@NonNull RequestHolder holder, int position) {
-        holder.requestName.setText(Name[position]);
+        holder.RequestTxt.setText(Name.get(position));
+        Picasso.get().load("http://192.168.43.191/chat_me/img/"+Picture.get(position)).into(holder.RequestImg);
     }
 
     @Override
     public int getItemCount() {
-        return Name.length;
+        return Name.size();
+    }
+
+    public void removeItem(int position) {
+        Name.remove(position);
+        notifyItemRemoved(position);
     }
 
     public class RequestHolder extends RecyclerView.ViewHolder{
 
-        ImageView requestImg;
-        TextView  requestName;
+        ImageView RequestImg;
+        TextView  RequestTxt;
+        Button Request_accept;
+        Button Request_reject;
 
         public RequestHolder(@NonNull View itemView) {
             super(itemView);
-            requestImg = itemView.findViewById(R.id.request_img);
-            requestName = itemView.findViewById(R.id.request_name);
+            RequestImg = itemView.findViewById(R.id.request_img);
+            RequestTxt = itemView.findViewById(R.id.request_name);
+            Request_accept = itemView.findViewById(R.id.request_accept_btn);
+            Request_reject = itemView.findViewById(R.id.request_reject_btn);
 
-            requestImg.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent in=new Intent(v.getContext(),Profile_Detail.class);
-                    in.putExtra("name",Name[getAdapterPosition()]);
+                    in.putExtra("name",Name.get(getAdapterPosition()));
+                    in.putExtra("picture",Picture.get(getAdapterPosition()));
+                    in.putExtra("status",Status.get(getAdapterPosition()));
+                    in.putExtra("last_seen",Last_Seen.get(getAdapterPosition()));
                     v.getContext().startActivity(in);
+
                 }
             });
+
+            Request_accept.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    fragment.request_answer(Id.get(getAdapterPosition()),"y");
+                    removeItem(getAdapterPosition());
+                    Toast.makeText(v.getContext(), "Accepted", 1).show();
+
+                }
+            });
+
+            Request_reject.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    fragment.request_answer(Id.get(getAdapterPosition()),"n");
+                    removeItem(getAdapterPosition());
+                    Toast.makeText(v.getContext(),"Rejected",1).show();
+                }
+            });
+
+
         }
     }
 }
+
+
+
