@@ -39,6 +39,14 @@ public class Main extends AppCompatActivity {
                     case R.id.top_nav_setting:
                         Toast.makeText(getApplicationContext(),db.myinfo(),Toast.LENGTH_LONG).show();
                         break;
+                    case R.id.top_nav_add_status:
+                        Intent i=new Intent(getApplicationContext(),upload_status.class);
+                        startActivity(i);
+                        break;
+                    case R.id.top_nav_logout:
+                        Intent in=new Intent(getApplicationContext(),LoginPage.class);
+                        startActivity(in);
+                        break;
                 }
                 return true;
             }

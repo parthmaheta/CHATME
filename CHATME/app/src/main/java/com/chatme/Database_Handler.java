@@ -30,7 +30,7 @@ public class Database_Handler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + TABLE+ "("
-                + USER_ID + " INTEGER PRIMARY KEY," + USER_NAME + " TEXT,"
+                + USER_ID + " TEXT ," + USER_NAME + " TEXT,"
                 + USER_EMAIL + " TEXT,"+ USER_PASS + " TEXT,"+ USER_PICTURE
                 + " TEXT,"+ USER_STATUS + " TEXT)";
 
@@ -101,10 +101,21 @@ public class Database_Handler extends SQLiteOpenHelper {
         sldb.close();
     }
 
+    public boolean isUser(){
+        sldb=this.getReadableDatabase();
+        String[] columns=new String[]{USER_ID,USER_NAME,USER_EMAIL,USER_PASS,USER_PICTURE,USER_STATUS};
+        Cursor c=sldb.query(TABLE,columns,null,null,null,null,null);
+        if(c.moveToNext()){
+            return true;
+        }
+        return false;
+    }
+
     public String[] getMailPass(){
         sldb = this.getReadableDatabase();
         String[] columns = new String[]{USER_ID,USER_NAME,USER_EMAIL,USER_PASS,USER_PICTURE,USER_STATUS};
         Cursor c = sldb.query(TABLE,columns,null,null,null,null,null);
+        c.moveToFirst();
         String[] res = new String[]{c.getString(c.getColumnIndex(USER_EMAIL)),c.getString(c.getColumnIndex(USER_PASS))};
         return res;
     }

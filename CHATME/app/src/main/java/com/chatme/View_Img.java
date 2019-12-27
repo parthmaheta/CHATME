@@ -27,8 +27,7 @@ public class View_Img extends AppCompatActivity {
         setSupportActionBar(titleBar);
         Intent in=getIntent();
 
-
-        Picasso.get().load("http://192.168.43.191/chatme/status_img/"+in.getStringExtra("path")).into(img);
+        Picasso.get().load("http://192.168.43.191/chatme/img/"+in.getStringExtra("path")).into(img);
         titleBar.setTitle(in.getStringExtra("name"));
         titleBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         titleBar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -37,8 +36,6 @@ public class View_Img extends AppCompatActivity {
                 finish();
             }
         });
-
-
 
 
     }

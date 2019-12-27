@@ -47,7 +47,7 @@ public class Fragment_Request extends Fragment {
     }
 
     private void load_request(){
-        RequestQueue MyRequestQueue = Volley.newRequestQueue(getContext());
+
         String url = "http://192.168.43.191/chatme/friend_requests.php";
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -67,9 +67,7 @@ public class Fragment_Request extends Fragment {
                 return MyData;
             }
         };
-
-
-        MyRequestQueue.add(MyStringRequest);
+        MySingleton.getInstance(getContext()).addRequestQueue(MyStringRequest);
 
     }
 
@@ -96,9 +94,9 @@ public class Fragment_Request extends Fragment {
         recycle_Requests.setAdapter(new RequestAdapter(this,f_ID,f_NAME,f_PICTURE,f_STATUS,f_LAST_SEEN));
     }
 
+
     public void  request_answer(final String id, final String answer){
 
-        RequestQueue MyRequestQueue = Volley.newRequestQueue(getContext());
 
         String url = "http://192.168.43.191/chatme/request_answer.php";
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -121,7 +119,7 @@ public class Fragment_Request extends Fragment {
             }
         };
 
-        MyRequestQueue.add(MyStringRequest);
+        MySingleton.getInstance(getContext()).addRequestQueue(MyStringRequest);
 
     }
 }

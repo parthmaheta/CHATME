@@ -99,6 +99,9 @@ public class OtpPage extends AppCompatActivity {
                             db_handler.deleteuser();
                             db_handler.addUser(id,u_name, u_email, u_pass);
                             My_Detail.My_ID = id;
+                            My_Detail.My_NAME =u_name;
+                            My_Detail.My_EMAIL =u_email;
+                            My_Detail.My_PASSWORD =u_pass;
                         }
                         catch (Exception ex){
                             ex.printStackTrace();

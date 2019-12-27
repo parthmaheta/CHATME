@@ -4,10 +4,19 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
+    <TextView
+        android:id="@+id/logotv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:gravity="center_vertical"
+        android:text="ChatMe"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="50sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
-
+        android:layout_below="@id/logotv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/find_contact_recycleview">

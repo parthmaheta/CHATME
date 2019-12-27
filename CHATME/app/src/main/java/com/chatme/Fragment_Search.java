@@ -71,13 +71,12 @@ public class Fragment_Search extends Fragment {
 
     private void load_friend(){
 
-        RequestQueue MyRequestQueue = Volley.newRequestQueue(getContext());
+
         String url = "http://192.168.43.191/chatme/search_friend.php";
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 fill_list(response);
-
             }
         }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
             @Override
@@ -92,8 +91,8 @@ public class Fragment_Search extends Fragment {
             }
         };
 
+        MySingleton.getInstance(getContext()).addRequestQueue(MyStringRequest);
 
-        MyRequestQueue.add(MyStringRequest);
     }
 
     private void fill_list(String response){

@@ -13,14 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusHolder> {
 
     private ArrayList<String> Name;
     private ArrayList<String> Path;
 
-    public StatusAdapter(ArrayList name,ArrayList path) {
+    public StatusAdapter(ArrayList<String> name,ArrayList<String> path)  {
         Name=name;
         Path=path;
     }
@@ -37,7 +37,7 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.StatusHold
     @Override
     public void onBindViewHolder(@NonNull StatusHolder holder, int position) {
         holder.StatusTxt.setText(Name.get(position));
-        Picasso.get().load("http://192.168.43.191/chatme/status_img/"+Path.get(position)).into(holder.StatusImg);
+        Picasso.get().load("http://192.168.43.191/chatme/img/"+Path.get(position)).into(holder.StatusImg);
     }
 
     @Override

@@ -76,15 +76,17 @@ public class LoginPage extends AppCompatActivity {
 
                                             try{
                                                 db_handler = new Database_Handler(getApplicationContext());
+                                                addToMy_Detail(jsonObject);
                                                 db_handler.deleteuser();
-                                                db_handler.addusr(jsonObject.getString("ID"),jsonObject.getString("NAME"),jsonObject.getString("EMAIL"),jsonObject.getString("PASSWORD"),jsonObject.getString("PICTURE"),jsonObject.getString("STATUS"));
+                                                db_handler.addusr(My_Detail.My_ID,My_Detail.My_NAME,My_Detail.My_EMAIL,My_Detail.My_PASSWORD,My_Detail.My_PICTURE, My_Detail.My_STATUS);
+
                                             }
                                             catch (Exception ex){
                                                 ex.printStackTrace();
                                             }
 
 
-                                            My_Detail.My_ID =jsonObject.getString("ID");
+
                                             Intent in = new Intent(getApplicationContext(), Main.class);
                                             startActivity(in);
                                         }
@@ -193,5 +195,18 @@ public class LoginPage extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    private void addToMy_Detail(JSONObject jsonObject){
+        try{
+       My_Detail.My_ID=jsonObject.getString("ID");
+       My_Detail.My_NAME=jsonObject.getString("NAME");
+       My_Detail.My_EMAIL=jsonObject.getString("EMAIL");
+       My_Detail.My_PASSWORD=jsonObject.getString("PASSWORD");
+       My_Detail.My_PICTURE=jsonObject.getString("PICTURE");
+       My_Detail.My_STATUS=jsonObject.getString("STATUS");}
+        catch(Exception e){
+
+        }
     }
 }

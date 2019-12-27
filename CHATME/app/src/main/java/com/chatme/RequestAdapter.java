@@ -46,8 +46,8 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestH
 
     @Override
     public void onBindViewHolder(@NonNull RequestHolder holder, int position) {
+        Picasso.get().load("http://192.168.43.191/chatme/img/"+Picture.get(position)).into(holder.RequestImg);
         holder.RequestTxt.setText(Name.get(position));
-        Picasso.get().load("http://192.168.43.191/chat_me/img/"+Picture.get(position)).into(holder.RequestImg);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestH
                 public void onClick(View v) {
                     Intent in=new Intent(v.getContext(),Profile_Detail.class);
                     in.putExtra("name",Name.get(getAdapterPosition()));
-                    in.putExtra("picture",Picture.get(getAdapterPosition()));
+                    in.putExtra("path",Picture.get(getAdapterPosition()));
                     in.putExtra("status",Status.get(getAdapterPosition()));
                     in.putExtra("last_seen",Last_Seen.get(getAdapterPosition()));
                     v.getContext().startActivity(in);

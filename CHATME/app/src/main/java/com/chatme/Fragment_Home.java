@@ -50,7 +50,6 @@ public class Fragment_Home extends Fragment {
 
         view=inflater.inflate(R.layout.fragment_home, container, false);
 
-
         load_status();
 
 
@@ -64,7 +63,7 @@ public class Fragment_Home extends Fragment {
     }
 
     private void load_status(){
-        RequestQueue MyRequestQueue = Volley.newRequestQueue(getContext());
+
         String url = "http://192.168.43.191/chatme/status.php";
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -85,8 +84,8 @@ public class Fragment_Home extends Fragment {
             }
         };
 
+        MySingleton.getInstance(getContext()).addRequestQueue(MyStringRequest);
 
-        MyRequestQueue.add(MyStringRequest);
 
     }
 

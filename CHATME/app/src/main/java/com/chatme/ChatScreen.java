@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.chatme.R;
+import com.squareup.picasso.Picasso;
 
 public class ChatScreen extends AppCompatActivity {
     @Override
@@ -33,18 +34,23 @@ public class ChatScreen extends AppCompatActivity {
        });
 
 
-       Intent in=getIntent();
-       String name=in.getStringExtra("name");
+       final Intent in=getIntent();
+
 
         TextView tv=(TextView)findViewById(R.id.chat_profile_name);
-        tv.setText(name);
+        tv.setText(in.getStringExtra("name"));
 
         ImageView iv=(ImageView)findViewById(R.id.chat_profile_img);
+        Picasso.get().load("http://192.168.43.191/chatme/img/"+in.getStringExtra("path")).into(iv);
+
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent showimg=new Intent(getApplicationContext(),Profile_Detail.class);
-                showimg.putExtra("src","path");
+                showimg.putExtra("path",in.getStringExtra("path"));
+                showimg.putExtra("name",in.getStringExtra("name"));
+                showimg.putExtra("last_seen",in.getStringExtra("last_seen"));
+                showimg.putExtra("status",in.getStringExtra("status"));
                 v.getContext().startActivity(showimg);
             }
         });

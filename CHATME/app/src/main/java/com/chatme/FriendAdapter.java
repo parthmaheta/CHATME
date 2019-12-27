@@ -51,8 +51,9 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.FriendHold
 
     @Override
     public void onBindViewHolder(@NonNull FriendHolder holder, int position) {
+
+        Picasso.get().load("http://192.168.43.191/chatme/img/"+Picture.get(position)).into(holder.FriendImg);
         holder.FriendTxt.setText(Name.get(position));
-        Picasso.get().load("http://192.168.43.191/chat_me/img/"+Picture.get(position)).into(holder.FriendImg);
     }
 
     @Override
@@ -84,11 +85,11 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.FriendHold
                     removeItem(getAdapterPosition());
                 }
             });
+
         }
     }
     public void send_request(final String id){
 
-        RequestQueue MyRequestQueue = Volley.newRequestQueue(CTX);
 
         String url = "http://192.168.43.191/chatme/send_request.php";
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -96,7 +97,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.FriendHold
             public void onResponse(String response) {
                 Toast.makeText(CTX,"Request Sent",1).show();
             }
-        }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(CTX,error.toString(),1).show();
@@ -110,8 +111,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.FriendHold
                 return MyData;
             }
         };
-
-        MyRequestQueue.add(MyStringRequest);
+        MySingleton.getInstance(CTX).addRequestQueue(MyStringRequest);
 
     }
 

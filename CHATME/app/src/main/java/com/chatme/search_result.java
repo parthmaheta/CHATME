@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +36,8 @@ public class search_result extends AppCompatActivity {
                 finish();
             }
         });
+
+        //getting intent from Fragment_search
         Intent i=getIntent();
         String response=i.getStringExtra("response");
         load_friend(response);
@@ -50,7 +53,10 @@ public class search_result extends AppCompatActivity {
                 f_ID.add(jobject.getString("ID"));
                 f_NAME.add(jobject.getString("NAME"));
                 f_PICTURE.add(jobject.getString("PICTURE"));
+
+
             }
+
         }
         catch(JSONException e){}
         showlist();
@@ -65,7 +71,6 @@ public class search_result extends AppCompatActivity {
         else{
             TextView tv=(TextView)findViewById(R.id.searchresult);
             tv.setText("No Result Found");
-
         }
     }
 }
