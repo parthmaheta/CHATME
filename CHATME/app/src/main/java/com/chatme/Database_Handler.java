@@ -49,7 +49,7 @@ public class Database_Handler extends SQLiteOpenHelper {
         sldb = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(USER_NAME,id);
+        values.put(USER_ID,id);
         values.put(USER_NAME,u_name);
         values.put(USER_EMAIL,u_email);
         values.put(USER_PASS,u_pass);

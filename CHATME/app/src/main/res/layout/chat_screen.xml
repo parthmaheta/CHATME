@@ -34,9 +34,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/chat_title_toolbar"
+        android:layout_above="@id/send_chat_linear"
         android:layout_marginTop="0dp" />
 
     <LinearLayout
+        android:id="@+id/send_chat_linear"
     android:weightSum="100"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -50,21 +52,14 @@
         android:hint="type message"
         android:textAlignment="center"
         android:background="@drawable/message_textbox"
-        android:layout_weight="75"></EditText>
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="12"
-        android:onClick="get_file"
-        android:background="@mipmap/send_media_icon"
-        android:id="@+id/send_chat_media"/>
+        android:layout_weight="80"></EditText>
+
     <Button
         android:id="@+id/send_chat_btn"
-        android:layout_toRightOf="@id/send_chat_media"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:background="@mipmap/send_icon"
-        android:layout_weight="13"
+        android:layout_weight="20"
         android:layout_gravity="right"
         ></Button>
 </LinearLayout>

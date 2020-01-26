@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2019 at 05:21 PM
+-- Generation Time: Jan 26, 2020 at 05:14 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -25,17 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `block`
---
-
-CREATE TABLE `block` (
-  `UID` smallint(5) UNSIGNED DEFAULT NULL,
-  `FID` smallint(5) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `chat`
 --
 
@@ -43,7 +32,7 @@ CREATE TABLE `chat` (
   `ID` int(10) UNSIGNED NOT NULL,
   `_FROM` smallint(5) UNSIGNED DEFAULT NULL,
   `_TO` smallint(5) UNSIGNED DEFAULT NULL,
-  `MESSAGE` text DEFAULT NULL,
+  `MESSAGE` text DEFAULT '',
   `IS_FILE` tinyint(1) DEFAULT 0,
   `FILE_PATH` text DEFAULT NULL,
   `STATUS` smallint(1) DEFAULT 0
@@ -60,15 +49,6 @@ CREATE TABLE `friend` (
   `FID` smallint(5) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `friend`
---
-
-INSERT INTO `friend` (`UID`, `FID`) VALUES
-(1, 1),
-(2, 1),
-(3, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -79,13 +59,6 @@ CREATE TABLE `request` (
   `UID` smallint(5) UNSIGNED DEFAULT NULL,
   `FID` smallint(5) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `request`
---
-
-INSERT INTO `request` (`UID`, `FID`) VALUES
-(3, 2);
 
 -- --------------------------------------------------------
 
@@ -98,16 +71,6 @@ CREATE TABLE `statuses` (
   `FILEPATH` varchar(200) DEFAULT NULL,
   `DATE_TIME` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `statuses`
---
-
-INSERT INTO `statuses` (`UID`, `FILEPATH`, `DATE_TIME`) VALUES
-(1, '1577423593.jpeg', '2019-12-27 05:13:13'),
-(1, '1577423611.jpeg', '2019-12-27 05:13:31'),
-(2, '1577423700.jpeg', '2019-12-27 05:14:59'),
-(3, '1577423779.jpeg', '2019-12-27 05:16:19');
 
 -- --------------------------------------------------------
 
@@ -127,24 +90,8 @@ CREATE TABLE `user_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_details`
---
-
-INSERT INTO `user_details` (`ID`, `NAME`, `EMAIL`, `PASSWORD`, `PICTURE`, `STATUS`, `DATE_TIME`, `LAST_SEEN`) VALUES
-(1, 'part', 'p@gmail.com', 'c483f6ce851c9ecd9fb835ff7551737c', '1577463573.jpeg', 'Hey..I M Using ChatME', '2019-12-27 04:57:27', '2019-12-27 04:57:27'),
-(2, 'q', 'q@gmail.com', '7694f4a66316e53c8cdd9d9954bd611d', 'demo.jpeg', 'Hey..I M Using ChatME', '2019-12-27 05:14:21', '2019-12-27 05:14:21'),
-(3, 'r', 'r@r.com', '4b43b0aee35624cd95b910189b3dc231', 'demo.jpeg', 'Hey..I M Using ChatME', '2019-12-27 05:15:35', '2019-12-27 05:15:35');
-
---
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `block`
---
-ALTER TABLE `block`
-  ADD KEY `UID` (`UID`),
-  ADD KEY `FID` (`FID`);
 
 --
 -- Indexes for table `chat`
@@ -198,18 +145,11 @@ ALTER TABLE `chat`
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `ID` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `block`
---
-ALTER TABLE `block`
-  ADD CONSTRAINT `block_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user_details` (`ID`),
-  ADD CONSTRAINT `block_ibfk_2` FOREIGN KEY (`FID`) REFERENCES `user_details` (`ID`);
 
 --
 -- Constraints for table `chat`

@@ -82,6 +82,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
                         in.putExtra("name", Name.get(getAdapterPosition()));
                         in.putExtra("path", Path.get(getAdapterPosition()));
                         in.putExtra("status",Status.get(getAdapterPosition()));
+                        in.putExtra("id",ID.get(getAdapterPosition()));
                         in.putExtra("last_seen",LAST_SEEN.get(getAdapterPosition()));
                         v.getContext().startActivity(in);
 

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
 
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -30,56 +34,31 @@
         android:layout_below="@id/profile_detail_img"
         android:id="@+id/profile_detail_name"
         android:textSize="30sp"/>
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="horizontal"
-       android:weightSum="100"
-       android:layout_below="@id/profile_detail_name"
-       android:id="@+id/linear1">
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Last Seen:"
-        android:id="@+id/lastAlign"
-        android:textSize="20sp"
-        android:layout_weight="40"
-        android:textAlignment="center"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2 Min Ago"
-        android:layout_marginLeft="20dp"
-        android:textColor="@color/colorPrimary"
-        android:id="@+id/profile_detail_lastseen"
-        android:textSize="25sp"
-        android:layout_weight="60"/>
-   </LinearLayout>
+
 
    <LinearLayout
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
-     android:orientation="horizontal"
-     android:weightSum="100"
-     android:layout_below="@id/linear1"
+     android:orientation="vertical"
+     android:layout_below="@id/profile_detail_name"
      android:id="@+id/linear2">
       <TextView
-          android:layout_width="0dp"
+          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Status"
+          android:text="Status:"
           android:id="@+id/statusAlign"
           android:textSize="20sp"
-          android:layout_weight="40"
           android:textAlignment="center"/>
 
       <TextView
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="StatusText"
           android:layout_marginLeft="20dp"
           android:textColor="@color/colorPrimary"
           android:id="@+id/profile_detail_status"
           android:textSize="25sp"
-          android:layout_weight="60"/>
+          />
       </LinearLayout>
 </RelativeLayout>
+</ScrollView>

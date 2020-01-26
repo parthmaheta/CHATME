@@ -36,16 +36,16 @@ public class Main extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 Database_Handler db = new Database_Handler(getApplicationContext());
                 switch (item.getItemId()){
-                    case R.id.top_nav_setting:
-                        Toast.makeText(getApplicationContext(),db.myinfo(),Toast.LENGTH_LONG).show();
-                        break;
+
                     case R.id.top_nav_add_status:
                         Intent i=new Intent(getApplicationContext(),upload_status.class);
                         startActivity(i);
                         break;
                     case R.id.top_nav_logout:
                         Intent in=new Intent(getApplicationContext(),LoginPage.class);
+                        in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(in);
+                        finish();
                         break;
                 }
                 return true;

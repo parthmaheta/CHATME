@@ -21,6 +21,7 @@
         android:layout_toRightOf="@id/chat_friend_img"
         android:textStyle="bold"
         android:textSize="25sp"
+        android:layout_marginLeft="20dp"
         android:text="TextView"
         android:layout_marginTop="2dp"/>
 
@@ -29,10 +30,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/chat_friend_img"
-        android:layout_alignBottom="@id/chat_friend_img"
-        android:text="Hii..?"
+        android:layout_below="@id/chat_friend_name"
         android:textSize="20sp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginLeft="10dp"
+        android:text="No New Message"
+        android:layout_marginTop="2dp"/>
 
 
 </RelativeLayout>

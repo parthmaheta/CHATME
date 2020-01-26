@@ -2,10 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/clear_chat"
-    android:title="Clear Chat"
-        ></item>
+    <item android:id="@+id/deletechat"
+        android:title="Delete Chat"></item>
 
-    <item android:id="@+id/block_chat"
-        android:title="Block"></item>
+    <item android:id="@+id/Unfriend"
+        android:title="Unfriend"></item>
 </menu>

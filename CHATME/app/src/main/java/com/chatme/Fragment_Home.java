@@ -36,8 +36,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Fragment_Home extends Fragment {
-    String[] Names={"name1","name2","name3"};
-    String[] Chats={"Hii...?","How r u ?","last message"};
+
+
+    ArrayList<String> chat_id = new ArrayList<String>();
+    ArrayList<String> chat_name = new ArrayList<String>();
+    ArrayList<String> chat_picture = new ArrayList<String>();
+    ArrayList<String> chat_status = new ArrayList<String>();
+    ArrayList<String> chat_lastseen = new ArrayList<String>();
+
     ArrayList<String> Status_name = new ArrayList<String>();
     ArrayList<String> Status_path = new ArrayList<String>();
     View view;
@@ -50,17 +56,66 @@ public class Fragment_Home extends Fragment {
 
         view=inflater.inflate(R.layout.fragment_home, container, false);
 
+        load_chat();
+
         load_status();
 
 
 
-        RecyclerView Recycle_Chat= view.findViewById(R.id.fragment_chat_recyclerview);
-        Recycle_Chat.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        Recycle_Chat.setAdapter(new ChatListAdapter(Names,Chats));
-
-        return view;
+         return view;
 
     }
+
+    private void load_chat(){
+
+        String url = "http://192.168.43.191/chatme/chatlist.php";
+        StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                fill_chat(response);
+
+            }
+        }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //Toast.makeText(getContext(),error.toString(),1).show();
+            }
+        }) {
+            protected Map<String, String> getParams() {
+                Map<String, String> MyData = new HashMap<String, String>();
+                MyData.put("ID",My_Detail.My_ID);
+                return MyData;
+            }
+        };
+
+        MySingleton.getInstance(getContext()).addRequestQueue(MyStringRequest);
+
+
+    }
+
+    private void fill_chat(String response){
+        try{
+            JSONArray jarray = new JSONArray(response);
+
+            for(int n=0;n<jarray.length();n++)
+            {
+                JSONObject jobject = jarray.getJSONObject(n);
+                chat_name.add(jobject.getString("NAME"));
+                chat_id.add(jobject.getString("ID"));
+                chat_picture.add(jobject.getString("PICTURE"));
+                chat_status.add(jobject.getString("STATUS"));
+                chat_lastseen.add(jobject.getString("LAST_SEEN"));
+            }
+        }
+        catch(JSONException e){}
+        showChat();
+    }
+    private void showChat(){
+        RecyclerView Recycle_Status= view.findViewById(R.id.fragment_chat_recyclerview);
+        Recycle_Status.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        Recycle_Status.setAdapter(new ChatListAdapter(getContext(),chat_id,chat_name,chat_picture,chat_status,chat_lastseen));
+    }
+
 
     private void load_status(){
 
@@ -74,7 +129,7 @@ public class Fragment_Home extends Fragment {
         }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(),error.toString(),1).show();
+                //Toast.makeText(getContext(),error.toString(),1).show();
             }
         }) {
             protected Map<String, String> getParams() {
